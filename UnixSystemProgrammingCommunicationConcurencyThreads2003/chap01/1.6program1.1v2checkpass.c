@@ -20,6 +20,6 @@ int main(int argc , char ** argv)
   control=checkpass(argv[1]);
   if(control != 0) /* we naively expect that 0 is failure,so we think !=0 is 1 , meaning success */
     printf("Match ,%d ,  you are accepted\n",control);
-  else printf("No match,function returned %d \n",control);
+  else printf("No match,function returned %d \n",control);  /* we can get the whole ASCII set here! */
   return 0;
 }
