@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-/* This programm will be called by the script, for automatic results */
+/* This programm will be called by the script 1.6program1.1v2checkpass.sh, for automatic results */
 int checkpass(char * input2check)
 {
    int x;
