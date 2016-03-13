@@ -1,7 +1,6 @@
-/* 8.5.1.usehello.c */
-#include "8.5.1.libhello.h"
-int main (void) 
+/* 8.5.1.libhello.c */
+#include <stdio.h>
+void print_hello(const char * inputstr) 
 {
-    print_hello("libhello.so.0.0");
-    return 0;
+    printf("Hello,you succesfully  used library %s.\n",inputstr);
 }
