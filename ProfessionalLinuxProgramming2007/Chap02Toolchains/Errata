@@ -2,8 +2,9 @@ page 28
 I do not know what version of gcc the authors were using in 2007, but now on my gcc 4.8.4
 the line 
  gcc -o trig -lm trig.c
-is wrong , and the correct way to link the math library is 
+is wrong , and the correct way to link the math library is at the end :
  gcc -o trig  trig.c -lm 
+ so no seperation ,with -lm, of the produced executable and the source code is allowed
 
 page 29 An Example Shared Library
 the line : 
@@ -17,3 +18,15 @@ to contrast it with the existing goodbye , and after doing an ls -l
 we can even see that the goodbye_shared is a little smaller than goodbye.
 Then the order of where you put the options matters for my gcc 4.8.4
 so the correct way is  gcc -L. -o goodbye_shared main.o -lmessage
+
+page 30 
+As a consequence of the logic that the text wants to present 2 programs 
+the line of the 1st code block: 
+ $ ldd goodbye
+should be replaced with :
+ $ ldd goodbye_shared
+and the last execution of: 
+ $./goodbye
+ refers to the older program and should be replaced with: 
+ $./goodbye_shared 
+ to prove that the command export LD_LIBRARY_PATH=`pwd`  did its job well. 
