@@ -1,0 +1,19 @@
+page 28
+I do not know what version of gcc the authors were using in 2007, but now on my gcc 4.8.4
+the line 
+ gcc -o trig -lm trig.c
+is wrong , and the correct way to link the math library is 
+ gcc -o trig  trig.c -lm 
+
+page 29 An Example Shared Library
+the line : 
+ gcc -o goodbye -lmessage -L. main.o
+should be replaced with : 
+ gcc -L. -o goodbye_shared main.o -lmessage
+First of all ,since on page 27 an executable has been created with :
+ gcc -o goodbye message.c main.c
+then the new executable will have another name : goodbye_shared
+to contrast it with the existing goodbye , and after doing an ls -l
+we can even see that the goodbye_shared is a little smaller than goodbye.
+Then the order of where you put the options matters for my gcc 4.8.4
+so the correct way is  gcc -L. -o goodbye_shared main.o -lmessage
