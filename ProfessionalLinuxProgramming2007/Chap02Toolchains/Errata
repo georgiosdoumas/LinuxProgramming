@@ -30,3 +30,7 @@ and the last execution of:
  refers to the older program and should be replaced with: 
  $./goodbye_shared 
  to prove that the command export LD_LIBRARY_PATH=`pwd`  did its job well. 
+
+page 39 GNU Make
+the correct file is not the file that is provided in the downloadable code , 
+neither what is shown in the book , but what I have placed under the dir of the chapter
