@@ -20,4 +20,4 @@ goodbye_shared: libmessage.so main.o
 	$(CC) $(CFLAGS) -o goodbye_shared main.o libmessage.so
 
 trig:
-	$(CC) $(CFLAGS)  -o trig trig.c -lm
+	$(CC) $(CFLAGS)  -g -o trig trig.c -lm
