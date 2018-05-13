@@ -4,13 +4,13 @@
 int checkpass(char * input2check)
 {
    int x;
-   char a[9];
+   char a[9]; /* here I follow the books convention and keep the array at index 9, but I think is not accurate */
    x = 0;   /* default value for failure */
    fprintf(stderr,"a at %p and\nx at %p\n", (void *)a, (void *)&x);
    sscanf(input2check, "%s", a);   /* danger of characters from a[] to get in memory places of x*/
    /* sscanf(input2check, "%9s",a);   that is a good method to avoid buffer overflow */
    printf("    Received string %s for checking\n",a); /* debugging message */
-   if (strcmp(a, "mypass") == 0)
+   if (strcmp(a, "mypass") == 0)   /* we have assumed that the string to test against is : mypass , a 6 character password */
       x = 1;
    return x;  /* So now we can naively suppose that x can only have a 0 or a 1 value? WRONG! */
 }
