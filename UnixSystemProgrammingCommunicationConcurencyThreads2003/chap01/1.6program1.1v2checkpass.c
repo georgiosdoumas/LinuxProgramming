@@ -12,7 +12,7 @@ int checkpass(char * input2check)
    printf("    Received string %s for checking\n",a); /* debugging message */
    if (strcmp(a, "mypass") == 0)
       x = 1;
-   return x;  /* So now we can naively suppose that x can only have a 0 os a 1 value? WRONG! */
+   return x;  /* So now we can naively suppose that x can only have a 0 or a 1 value? WRONG! */
 }
 int main(int argc , char ** argv)
 {
