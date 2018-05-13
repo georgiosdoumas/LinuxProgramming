@@ -3,7 +3,7 @@
 int checkpass(void)
 {
    int x;
-   char a[6];
+   char a[6];  /* since the password is the string : mypass , only 6 characters are needed */
    x = 0;   /* default value for failure */
    fprintf(stderr,"a at %p and\nx at %p\n", (void *)a, (void *)&x);
    printf("Enter a short word: ");
