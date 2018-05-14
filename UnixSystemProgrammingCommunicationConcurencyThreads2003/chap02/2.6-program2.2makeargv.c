@@ -20,7 +20,7 @@ int makeargv(const char *s, const char *delimiters, char ***argvp)
       for (numtokens = 1; strtok(NULL, delimiters) != NULL; numtokens++) ;
       /* next,create argument array for ptrs to the tokens */
    if ((*argvp = malloc((numtokens + 1)*sizeof(char *))) == NULL) 
-    {
+    {       /* if the allocation of memory failed, there is some cleaning work to do before terminating the program */
       error = errno;
       free(t);
       errno = error;
