@@ -12,5 +12,5 @@ char **getpaths(void)
       return myargv;
 }
 /*
-gcc -Wall -o 2.10-exercise2.24main 2.6-program2.2makeargv.c 2.10-exercise2.24getpaths.c 2.10-exercise2.24main.c
+gcc -Wall -o 2.10-exercise2.24main 2.06program2.2makeargv.c 2.10exercise2.24getpaths.c 2.10exercise2.24main.c
 */
