@@ -14,14 +14,15 @@ static list_t *headptr = NULL;
 static list_t *tailptr = NULL;
 static list_t **travptrs = NULL; /*beggining of a non-fixed-size array of pointers-to-list_t */
 static int travptrs_size = 0;  /* setting the size of above array,initially to 0 */
+
 int accessdata(void)
 {              /* function returns a nonnegative key if successful */
    int i;
-   list_t **newptrs;
-   if (headptr == NULL)             /* can't access a completely empty list! */
-	   { errno = EINVAL; return -1; }
+   list_t **newptrs;     /* an array of pointers-to-list_t objects */
+   if (headptr == NULL)             /* refuse to access a completely empty list! */
+     { errno = EINVAL; return -1; }
    if (travptrs_size == 0)                      /* is it the first traversal? */
-	 {    /* then allocate memory enough to hold 8 pointers of type list_t. */
+   {    /* then allocate memory enough to hold 8 pointers of type list_t. */
       travptrs = (list_t **)calloc(TRAV_INIT_SIZE, sizeof(list_t *));
       if (travptrs == NULL)     /* couldn't allocate space for traversal keys? */
          return -1;
@@ -30,10 +31,10 @@ int accessdata(void)
       return 0;
     }   /*if not 1st traversal,then we got a travptrs_size of 8 or more */
    for (i = 0; i < travptrs_size; i++)     /* look for an empty slot for key */
-	 {
+   {
       if (travptrs[i] == NULL)
-		    { travptrs[i] = headptr; return i; }
-   }
+        { travptrs[i] = headptr; return i; }
+   } /* if the previous loop did not found an empty slot, we expand the allocated memory, doubling it */
    newptrs = realloc(travptrs, 2*travptrs_size*sizeof(list_t *));
    if (newptrs == NULL)        /* couldn't double the array of traversal keys? */
       return -1;
@@ -58,7 +59,7 @@ int adddata(data_t data)    /* allocate node for data and add/append to end of l
       headptr = newnode;
    else      /* or was it the last of an existing list? */
       tailptr->next = newnode;
-   tailptr = newnode;  /* update what is considered as a last element */
+   tailptr = newnode;  /* in any case, update what is considered as a last element */
    return 0;
 }
 
@@ -68,7 +69,7 @@ int getdata(int key, data_t *datap)  /* copy next item and set datap->string */
    if ( (key < 0) || (key >= travptrs_size) || (travptrs[key] == NULL) )
 	  { errno = EINVAL; return -1; }
    if (travptrs[key] == &endlist)  /* reached end of list? */
-	 {
+   {
       datap->string = NULL;
       travptrs[key] = NULL;
       return 0;       /* reaching end of list natural condition, not an error */
@@ -93,3 +94,4 @@ int freekey(int key)                /* free list entry corresponding to key */
    travptrs[key] = NULL;
    return 0;
 }
+
