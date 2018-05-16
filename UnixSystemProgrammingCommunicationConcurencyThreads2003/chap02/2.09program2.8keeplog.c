@@ -37,4 +37,9 @@ int main(int argc, char *argv[])
 }
 /*
 gcc -Wall -std=c99 -o 2.09program2.8logmain 2.09program2.7listlib.c 2.09program2.9keeploglib.c 2.09program2.8keeplog.c
+
+and then run the executable like this 
+./2.09program2.8logmain history 
+or 
+./2.09program2.8logmain
 */
