@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #define PATH_DELIMITERS ":"
-int makeargv(const char *s, const char *delimiters, char ***argvp);
+int makeargv(const char *s, const char *delimiters, char ***argvp); /* defined in 2.06program2.2makeargv.c */
 char **getpaths(void) 
 {
    char **myargv;
