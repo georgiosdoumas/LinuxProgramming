@@ -1,3 +1,6 @@
+/* Expanded version of Example 3.6 twoprocs.c of the book, 
+incorporating the idea of changing the x variable from Example 3.5 simplefork.c */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -25,12 +28,13 @@ int main(void)
 }
 /*
 gcc -Wall -std=c11 -o 3.3example3.6twoprocs 3.3example3.6twoprocs.c
-
+  Execution gives : 
 ./3.3example3.6twoprocs 
 I am parent 10023 my parent is 3662, my x variable is -1 at memory location 0x7ffcd6159b28
  here we have x = -1
 I am child 10024 my parent is 10023, my x variable is 1 at memory location 0x7ffcd6159b28
  here we have x = 1
 
+So how is it possible to see the same memory address 0x7ffcd6159b28 ? I do not understand it.
 */
 
