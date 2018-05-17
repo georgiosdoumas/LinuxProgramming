@@ -8,6 +8,7 @@ int main(void)
 {
    int x = 0;
    pid_t childpid;
+   printf("Before calling fork(), x is %d and its memory location is %p \n",x, &x);
    childpid = fork();
    if (childpid == -1)
    {
@@ -30,11 +31,13 @@ int main(void)
 gcc -Wall -std=c11 -o 3.3example3.6twoprocs 3.3example3.6twoprocs.c
   Execution gives : 
 ./3.3example3.6twoprocs 
-I am parent 10023 my parent is 3662, my x variable is -1 at memory location 0x7ffcd6159b28
+Before calling fork(), x is 0 and its memory location is 0x7ffeb1922ff8 
+I am parent 11681 my parent is 3662, my x variable is -1 at memory location 0x7ffeb1922ff8
  here we have x = -1
-I am child 10024 my parent is 10023, my x variable is 1 at memory location 0x7ffcd6159b28
+I am child 11682  my parent is 11681, my x variable is 1 at memory location 0x7ffeb1922ff8
  here we have x = 1
 
-So how is it possible to see the same memory address 0x7ffcd6159b28 ? I do not understand it.
+So how is it possible to see the same memory address 0x7ffeb1922ff8 ? I do not understand it.
+I thought that child process would have a separate address space
 */
 
