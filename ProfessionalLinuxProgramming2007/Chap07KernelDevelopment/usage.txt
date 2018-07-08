@@ -1,0 +1,19 @@
+-while in the same directory in which this plp.c file exists (for example it can be a directory /home/your_username/mymodules/ )
+-create another file named Kbuild (with contents what I have in the file Kbuild here ) and issue :
+make -C /usr/src/kernels/3.10.0-862.el7.x86_64 modules M=$PWD
+-(of course the actual version of your kernel will vary, but my ScientificLinux 7 has this 3.10.0 )
+-and as a result several files will be created , like plp.ko , plp.o , Module.symvers , modules.order and a few other files.
+-Then give the command (while in a console connection or a pts/# or a tty# connection , in any case I had to type dmesg )
+sudo insmod plp.ko   (or if I have changed dir , sudo insmod /full/path/to/plp.ko )
+dmesg 
+sudo rmmod plp
+dmesg
+
+-To have the module placed in a more general place :
+sudo make -C /usr/src/kernels/3.10.0-862.el7.x86_64 modules M=$PWD modules_install
+ls -l /lib/modules/3.10.0-862.el7.x86_64/extra
+- and now it is easier to load the module more genericaly with 
+sudo modprobe plp
+dmesg  
+sudo modprobe -r plp
+dmesg  
