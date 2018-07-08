@@ -6,11 +6,12 @@ should be replaced with :
  gcc -L. -o goodbye_shared main.o -lmessage
 First of all ,since on page 27 an executable has been created with :
  gcc -o goodbye message.c main.c
-then the new executable will have another name : goodbye_shared
+then the new executable (that will serve as an example of shared libraries) should have another name : goodbye_shared
 to contrast it with the existing goodbye , and after doing an ls -l
 we can even see that the goodbye_shared is a little smaller than goodbye.
-Then the order of where you put the options matters for my gcc 4.8.4
-so the correct way is  gcc -L. -o goodbye_shared main.o -lmessage
+Then the order of where you put the options does not matter,  
+so I am just giving an alternative order with:  gcc -L. -o goodbye_shared main.o -lmessage
+Do not forget to do the export of path as mentioned on page 30, before attempting to run ./goodbye_shared
 
 page 30 
 As a consequence of the logic that the text wants to present 2 programs 
