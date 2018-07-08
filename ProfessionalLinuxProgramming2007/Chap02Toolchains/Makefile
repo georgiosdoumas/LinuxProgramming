@@ -1,6 +1,8 @@
 # Makefilefull to build Toolchains examples
 # use it : make -F Makefilefull all 
 #          make -F Makefilefull clean
+# the trig is build with -g option for debugging symbols
+# We could do that to any of the other target files 
 
 CFLAGS := -Wall -pedantic-errors
 
@@ -25,4 +27,4 @@ libmessage.so:
 
 
 trig:
-        $(CC) $(CFLAGS) -lm -o trig trig.c
+        $(CC) $(CFLAGS) -g -lm -o trig trig.c
