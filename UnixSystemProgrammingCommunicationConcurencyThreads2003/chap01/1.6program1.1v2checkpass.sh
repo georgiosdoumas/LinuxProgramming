@@ -8,5 +8,5 @@ for word in ${EXTRAINPUT[*]}
 do
   input=${basicstr}${word}  #all these inputs should not give success...
   # echo "---passing $input for checking --- "
-  ./1.6program1.1v2checkpass $input  #for first 2 cases they fail , but then again give success
+  ./1.6program1.1v2checkpass $input  #for first 2 cases they fail as they should, but then again give successwhen they should not!
 done
